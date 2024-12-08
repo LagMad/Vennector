@@ -51,6 +51,13 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.coil.compose)
+    implementation(libs.gif.android.gif.drawable)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+    implementation(libs.android.gif.drawable.v1223)
+
     implementation(libs.ui)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
