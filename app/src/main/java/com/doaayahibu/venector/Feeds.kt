@@ -102,9 +102,9 @@ fun FeedsPage() {
                         .padding(horizontal = 8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    item {
-                        TitleButtons()
-                    }
+//                    item {
+//                        TitleButtons()
+//                    }
                     item {
                         Posts()
                     }
@@ -117,34 +117,36 @@ fun FeedsPage() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MediumTopAppBarFeeds(context: Context) {
-    TopAppBar(
-//        title = { Text(text = stringResource(id = R.string.app_name), style = TextStyle(fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color(0xFFFFFFFF))) },
-        title = {},
-
-        navigationIcon = {
-            IconButton(onClick = { showToast(context, "Navigation Icon clicked") }) {
-                Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Navigation Icon")
-            }
-        },
-
-        actions = {
-            IconButton(onClick = { showToast(context, "Message Icon clicked") }) {
-                Icon(Icons.AutoMirrored.Filled.Message, contentDescription = "Action Icon")
-            }
-            IconButton(onClick = { showToast(context, "Add Post Icon clicked") }) {
-                Icon(Icons.Filled.AddCircleOutline, contentDescription = "Action Icon")
-            }
-            IconButton(onClick = { showToast(context, "Profile Icon clicked") }) {
-                Icon(Icons.Filled.Person, contentDescription = "Action Icon")
-            }
-        },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color(0xFFFFFFFF),
-//            titleContentColor = Color(0xFFFFFFFF),
-            actionIconContentColor = Color.Black,
-            navigationIconContentColor = Color.Black
+    Column {
+        // First Row: Navigation Icon, Actions, and Empty Title
+        TopAppBar(
+            title = {},
+            navigationIcon = {
+                IconButton(onClick = { showToast(context, "Navigation Icon clicked") }) {
+                    Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Navigation Icon")
+                }
+            },
+            actions = {
+                IconButton(onClick = { showToast(context, "Message Icon clicked") }) {
+                    Icon(Icons.AutoMirrored.Filled.Message, contentDescription = "Message Icon")
+                }
+                IconButton(onClick = { showToast(context, "Add Post Icon clicked") }) {
+                    Icon(Icons.Filled.AddCircleOutline, contentDescription = "Add Post Icon")
+                }
+                IconButton(onClick = { showToast(context, "Profile Icon clicked") }) {
+                    Icon(Icons.Filled.Person, contentDescription = "Profile Icon")
+                }
+            },
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = Color(0xFFFFFFFF),
+                actionIconContentColor = Color.Black,
+                navigationIconContentColor = Color.Black
+            )
         )
-    )
+
+        // Second Row: Title Buttons
+        TitleButtons()
+    }
 }
 
 @Composable
@@ -153,7 +155,8 @@ fun TitleButtons() {
 
     Row(
         modifier = Modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .padding(horizontal = 12.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -168,20 +171,19 @@ fun TitleButtons() {
             modifier = Modifier
                 .width(200.dp),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically // Align buttons vertically centered
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
                 onClick = {
                     showToast(context, "Recent button clicked")
                 },
                 modifier = Modifier
-                    .weight(1f) // Take up equal width space
-//                    .fillMaxWidth()
+                    .weight(1f)
                     .padding(vertical = 0.dp)
                     .padding(horizontal = 0.dp),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = Color.Transparent, // Transparent background
-                    contentColor = Color(0xFFFF6500) // Text/icon color
+                    containerColor = Color.Transparent,
+                    contentColor = Color(0xFFFF6500)
                 ),
                 border = BorderStroke(2.dp, Color.Black)
             ) {
@@ -201,20 +203,18 @@ fun TitleButtons() {
                     showToast(context, "Popular button clicked")
                 },
                 modifier = Modifier
-                    .weight(1f) // Take up equal width space
-//                    .fillMaxWidth()
+                    .weight(1f)
                     .padding(vertical = 1.dp)
                     .padding(horizontal = 0.dp),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = Color.Transparent, // Transparent background
-                    contentColor = Color(0xFFFF6500) // Text/icon color
+                    containerColor = Color.Transparent,
+                    contentColor = Color(0xFFFF6500)
                 ),
                 border = BorderStroke(2.dp, Color.Black)
             ) {
                 Text(
                     text = "Popular",
                     modifier = Modifier
-//                        .fillMaxWidth()
                         .padding(2.dp),
                     textAlign = TextAlign.Center,
                     fontSize = 12.sp,
