@@ -130,7 +130,10 @@ fun MediumTopAppBarFeeds(context: Context) {
                 }) {
                     Icon(Icons.Filled.AddCircleOutline, contentDescription = "Add Post Icon")
                 }
-                IconButton(onClick = { showToast(context, "Profile Icon clicked") }) {
+                IconButton(onClick = {
+                    showToast(context, "Profile Icon clicked")
+                    context.startActivity(Intent(context, Profile::class.java))
+                }) {
                     Icon(Icons.Filled.Person, contentDescription = "Profile Icon")
                 }
             },
