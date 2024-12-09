@@ -4,18 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -62,12 +59,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import coil.size.Scale
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.doaayahibu.venector.ui.theme.VenectorTheme
 
 class Feeds : ComponentActivity() {
@@ -130,7 +124,10 @@ fun MediumTopAppBarFeeds(context: Context) {
                 IconButton(onClick = { showToast(context, "Message Icon clicked") }) {
                     Icon(Icons.AutoMirrored.Filled.Message, contentDescription = "Message Icon")
                 }
-                IconButton(onClick = { showToast(context, "Add Post Icon clicked") }) {
+                IconButton(onClick = {
+                    showToast(context, "Add Post Icon clicked")
+                    context.startActivity(Intent(context, AddPost::class.java))
+                }) {
                     Icon(Icons.Filled.AddCircleOutline, contentDescription = "Add Post Icon")
                 }
                 IconButton(onClick = { showToast(context, "Profile Icon clicked") }) {
