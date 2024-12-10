@@ -46,6 +46,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.doaayahibu.venector.ui.components.NavArrowBackTitle
+import com.doaayahibu.venector.ui.components.NotifCard
 import com.doaayahibu.venector.ui.components.TabButton
 import com.doaayahibu.venector.ui.theme.VenectorTheme
 
@@ -127,89 +128,6 @@ fun Notifications() {
                 time = notification.time
             )
         }
-    }
-}
-
-@Composable
-fun NotifCard(
-    name: String,
-    goal: String,
-    day: String,
-    time: String
-) {
-    val context = LocalContext.current
-
-    Column(
-        modifier = Modifier
-            .padding(8.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.Top
-        ) {
-            Icon(Icons.Filled.AccountCircle, contentDescription = "Profile Icon", modifier = Modifier.weight(1f), tint = Color(0xFF5B99C2))
-
-            Column(
-                modifier = Modifier
-                    .weight(8f)
-            ) {
-                Text(
-                    text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("$name")
-                        }
-                        append(" wants to ") // Add the regular text before the bold part
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("$goal") // Make goal bold
-                        }
-                        append(" on your product!!") // Add the regular text after the bold part
-                    }
-                )
-
-                Text(text = "What are you waiting for?")
-                Spacer(modifier = Modifier.height(2.dp))
-                Text(text = "$day at $time", color = Color.DarkGray, fontSize = 12.sp)
-                Spacer(modifier = Modifier.height(5.dp))
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
-                ) {
-                    Button(
-                        modifier = Modifier
-                            .weight(1f),
-                        onClick = { showToast(context, "wih kamu tertarik $name untuk $goal") },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color(0xFF5B99C2)
-                        ),
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Text(text = "Interest", color = Color.White)
-                    }
-                    Button(
-                        modifier = Modifier
-                            .weight(1f),
-                        onClick = { showToast(context, "wih kamu menolak $name untuk $goal") },
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White
-                        ),
-                        shape = RoundedCornerShape(8.dp),
-                        border = BorderStroke(2.dp, Color.LightGray)
-                    ) {
-                        Text(text = "Decline", color = Color.DarkGray)
-                    }
-                    Spacer(modifier = Modifier.weight(1f))
-                }
-                Spacer(modifier = Modifier.height(15.dp))
-            }
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(3.dp)
-                .clip(RoundedCornerShape(100))
-                .background(Color.LightGray)
-        )
     }
 }
 

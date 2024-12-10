@@ -15,6 +15,11 @@
         android:theme="@style/Theme.Venector"
         tools:targetApi="31">
         <activity
+            android:name=".InvestorDescription"
+            android:exported="false"
+            android:label="@string/title_activity_investor_description"
+            android:theme="@style/Theme.Venector" />
+        <activity
             android:name=".Messages"
             android:exported="false"
             android:label="@string/title_activity_messages"
