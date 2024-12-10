@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue">
+
+    <!-- Elips (Akan Diubah Ukurannya dengan Animasi) -->
+    <View
+        android:id="@+id/elips"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/elips_union"
+        android:visibility="invisible" />
+
+    <!-- Logo Kecil -->
+    <ImageView
+        android:id="@+id/logo_small"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_small"
+        android:visibility="invisible" />
+
+    <!-- Logo Besar (Untuk Fade In) -->
+    <ImageView
+        android:id="@+id/logo_full"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo_full_vennector"
+        android:visibility="invisible" />
+</RelativeLayout>

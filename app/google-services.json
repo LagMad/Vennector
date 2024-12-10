@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "31734679876",
+    "project_id": "project-papb-a",
+    "storage_bucket": "project-papb-a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31734679876:android:d5b10b7d44e5f1b94bef11",
+        "android_client_info": {
+          "package_name": "com.doaayahibu.venector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOdLYbZBOzam0LEPcTyJEKDXepxBAY7Ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

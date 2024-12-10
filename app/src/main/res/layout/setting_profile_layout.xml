@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Header Background -->
+    <ImageView
+        android:id="@+id/header_background"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/rectangle_870"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Star Background -->
+    <ImageView
+        android:id="@+id/star_background"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/background_star"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="60dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/edit_photo"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/circle_background_2"
+        android:importantForAccessibility="no"
+        android:padding="4dp"
+        android:src="@drawable/edit_photo"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="113dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Doa Ayah Ibu"
+        android:textSize="20sp"
+        android:textColor="@color/dark_blue"
+        android:layout_marginTop="@dimen/padding_small"
+        app:layout_constraintTop_toBottomOf="@id/profile_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/menu_section_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@id/profile_name">
+
+        <LinearLayout
+            android:id="@+id/EditProfileInformation"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onEditProfileInformationClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/edit_profile" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="edit profile information"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Notification"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onNotificationClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/notification" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="notification"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="ON"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Language"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onLanguageClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/language" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="language"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="English"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_section_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_1">
+
+        <LinearLayout
+            android:id="@+id/Security"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onSecurityClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/security" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="security"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Theme"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onThemeClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/theme" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="theme"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="light mode"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_section_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_2">
+
+        <LinearLayout
+            android:id="@+id/HelpSupport"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onHelpSupportClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/help_support" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="help &amp; support"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ContactUs"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onContactUsClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/contact_us" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="contact us"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/PrivacyPolicy"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onPrivacyPolicyClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/padding_verysmall"
+                android:src="@drawable/privacy_policy" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="privacy policy"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_big"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:background="@drawable/button_background"
+        android:enabled="false"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_3"
+        android:layout_centerHorizontal="true"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
