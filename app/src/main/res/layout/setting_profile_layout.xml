@@ -13,15 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/rectangle_870"
-        android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Star Background -->
-    <ImageView
-        android:id="@+id/star_background"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:src="@drawable/background_star"
+        android:importantForAccessibility="no"
         android:scaleType="fitXY"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,13 +23,15 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="60dp"
+        android:importantForAccessibility="no"
         android:src="@mipmap/ic_launcher_round"
         android:background="@drawable/circle_background"
         android:scaleType="centerCrop"
         android:clipToOutline="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
     <ImageButton
@@ -56,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Doa Ayah Ibu"
+        android:text="@{user.nick_name}"
         android:textSize="20sp"
         android:textColor="@color/dark_blue"
         android:layout_marginTop="@dimen/padding_small"
@@ -76,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@id/profile_name">
 
         <LinearLayout
-            android:id="@+id/EditProfileInformation"
+            android:id="@+id/edit_profile_information"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onEditProfileInformationClicked"
@@ -84,13 +79,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_verysmall">
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/edit_profile" />
 
             <TextView
@@ -98,14 +95,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="edit profile information"
+                android:text="@string/edit_profile_information"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Notification"
+            android:id="@+id/notification"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onNotificationClicked"
@@ -119,7 +116,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/notification" />
 
             <TextView
@@ -127,23 +125,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="notification"
+                android:text="@string/notification"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
 
             <TextView
+                android:id="@+id/notification_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center_vertical|clip_horizontal"
-                android:text="ON"
+                android:text="@string/on"
                 android:textSize="12sp"
                 android:textColor="@color/light_blue" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Language"
+            android:id="@+id/language"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onLanguageClicked"
@@ -156,7 +155,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/language" />
 
             <TextView
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="language"
+                android:text="@string/language"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
@@ -174,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center_vertical|clip_horizontal"
-                android:text="English"
+                android:text="@string/english"
                 android:textSize="12sp"
                 android:textColor="@color/light_blue" />
         </LinearLayout>
@@ -193,7 +193,7 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_section_1">
 
         <LinearLayout
-            android:id="@+id/Security"
+            android:id="@+id/security"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onSecurityClicked"
@@ -201,13 +201,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_verysmall">
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/security" />
 
             <TextView
@@ -215,14 +217,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="security"
+                android:text="@string/security"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Theme"
+            android:id="@+id/theme"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onThemeClicked"
@@ -236,7 +238,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/theme" />
 
             <TextView
@@ -244,17 +247,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="theme"
+                android:text="@string/theme"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
 
             <TextView
+                android:id="@+id/theme_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
                 android:gravity="center_vertical|clip_horizontal"
-                android:text="light mode"
+                android:text="@string/light_mode"
                 android:textSize="12sp"
                 android:textColor="@color/light_blue" />
         </LinearLayout>
@@ -273,21 +277,23 @@
         app:layout_constraintTop_toBottomOf="@+id/menu_section_2">
 
         <LinearLayout
-            android:id="@+id/HelpSupport"
+            android:id="@+id/about_us"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="onHelpSupportClicked"
+            android:onClick="onAboutUstClicked"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_verysmall">
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/help_support" />
 
             <TextView
@@ -295,43 +301,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="help &amp; support"
+                android:text="@string/about_us"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ContactUs"
-            android:clickable="true"
-            android:focusable="true"
-            android:onClick="onContactUsClicked"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_verysmall">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
-                android:src="@drawable/contact_us" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/poppins_regular"
-                android:text="contact us"
-                android:textColor="@color/black"
-                android:textSize="12sp"
-                android:gravity="center_vertical|clip_horizontal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/PrivacyPolicy"
+            android:id="@+id/privacy_policy"
             android:clickable="true"
             android:focusable="true"
             android:onClick="onPrivacyPolicyClicked"
@@ -339,13 +316,46 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/padding_small"
-            android:paddingBottom="@dimen/padding_verysmall">
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:gravity="center"
-                android:layout_marginRight="@dimen/padding_verysmall"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/contact_us" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/terms_and_conditions"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTermsAndConditionClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
                 android:src="@drawable/privacy_policy" />
 
             <TextView
@@ -353,7 +363,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins_regular"
-                android:text="privacy policy"
+                android:text="@string/terms_amp_cndition"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:gravity="center_vertical|clip_horizontal" />
@@ -361,7 +371,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/log_out_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_big"
@@ -370,7 +380,7 @@
         android:enabled="false"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:text="@string/log_in"
+        android:text="@string/log_out"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/menu_section_3"
         android:layout_centerHorizontal="true"

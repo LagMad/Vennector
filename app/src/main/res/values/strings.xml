@@ -46,4 +46,13 @@
     <string name="malay">Malay</string>
     <string name="security">Security</string>
     <string name="change">change</string>
+    <string name="terms_amp_cndition"><![CDATA[terms & condition]]></string>
+    <string name="privacy_policy">privacy policy</string>
+    <string name="about_us">about us</string>
+    <string name="light_mode">light mode</string>
+    <string name="theme">theme</string>
+    <string name="on">ON</string>
+    <string name="notification">notification</string>
+    <string name="edit_profile_information">edit profile information</string>
+    <string name="log_out">log out</string>
 </resources>

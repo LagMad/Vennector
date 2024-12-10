@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -6,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.doaayahibu.venector"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.doaayahibu.venector"
-        minSdk = 26
-        targetSdk = 34
+        minSdk = 35
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -39,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -62,13 +65,17 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.material)
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
-    implementation ("com.google.android.material:material:1.9.0")
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.6.0")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.material.v190)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.firebase.auth)
+    implementation(libs.play.services.auth)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.picasso)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

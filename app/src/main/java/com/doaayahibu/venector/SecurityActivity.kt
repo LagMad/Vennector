@@ -5,25 +5,26 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.doaayahibu.venector.R
+import com.doaayahibu.venector.databinding.SecurityLayoutBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_security.*
 
 class SecurityActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var binding: SecurityLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.security_layout)
+        binding = SecurityLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
 
         // Ambil email dan password dari EditText
-        val emailInput = emailInput.text.toString().trim()
-        val passwordInput = passwordName.text.toString().trim()
+        val emailInput = binding.emailInput.text.toString().trim()
+        val passwordInput = binding.passwordName.text.toString().trim()
 
         // Mengubah email pengguna
-        EmailChangeButton.setOnClickListener {
+        binding.emailChangeButton.setOnClickListener {
             auth.currentUser?.updateEmail(emailInput)?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this, "Email updated successfully", Toast.LENGTH_SHORT).show()
@@ -34,7 +35,7 @@ class SecurityActivity : AppCompatActivity() {
         }
 
         // Mengubah password pengguna
-        passwordChangeButton.setOnClickListener {
+        binding.passwordChangeButton.setOnClickListener {
             if (passwordInput.length >= 6) { // pastikan password memiliki setidaknya 6 karakter
                 auth.currentUser?.updatePassword(passwordInput)?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
