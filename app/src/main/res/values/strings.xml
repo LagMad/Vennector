@@ -3,4 +3,6 @@
     <string name="title_activity_feeds">Feeds</string>
     <string name="title_activity_add_post">AddPost</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_nav_top_bar">NavTopBar</string>
+    <string name="title_activity_messages">Messages</string>
 </resources>

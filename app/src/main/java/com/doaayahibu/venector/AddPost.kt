@@ -50,6 +50,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
+import com.doaayahibu.venector.ui.components.NavArrowBackTitle
 import com.doaayahibu.venector.ui.theme.VenectorTheme
 
 class AddPost : ComponentActivity() {
@@ -91,17 +92,13 @@ fun AddPostPage() {
                     .padding(paddingValues),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Box(
-                    modifier = Modifier
-                        .padding(horizontal = 8.dp)
-                ) {
-                    IconButton(onClick = {
-                        showToast(context, "Navigation Icon clicked")
-                        context.startActivity(Intent(context, Feeds::class.java))
-                    }) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Navigation Icon", tint = Color.Black)
-                    }
-                }
+                NavArrowBackTitle(
+                    onClick = {
+                    showToast(context, "Navigation Icon clicked")
+                    context.startActivity(Intent(context, Feeds::class.java))
+                    },
+                    title = "Add Post"
+                )
 
                 Column(
                     modifier = Modifier
@@ -109,7 +106,6 @@ fun AddPostPage() {
                         .padding(horizontal = 8.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
-                    // Import button
                     Button(
                         onClick = { launcher.launch("image/*") },
                         modifier = Modifier.fillMaxWidth(),
@@ -120,7 +116,6 @@ fun AddPostPage() {
                         Text(text = "Import Pictures", color = Color.White)
                     }
 
-                    // Horizontal scrolling images
                     LazyRow(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
