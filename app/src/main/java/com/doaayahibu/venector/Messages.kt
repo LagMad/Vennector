@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
@@ -105,12 +107,19 @@ fun Notifications() {
         NotificationData("Hago", "INVEST", "Monday", "9:42PM"),
         NotificationData("Aracel", "INVEST", "Friday", "1:00AM"),
         NotificationData("Jeremmy", "INVEST", "Yesterday", "8:52PM"),
-        NotificationData("Joni", "BUY", "Today", "7:30AM")
+        NotificationData("Joni", "BUY", "Today", "7:30AM"),
+        NotificationData("Hago", "INVEST", "Monday", "9:42PM"),
+        NotificationData("Aracel", "INVEST", "Friday", "1:00AM"),
+        NotificationData("Jeremmy", "INVEST", "Yesterday", "8:52PM"),
+        NotificationData("Joni", "BUY", "Today", "7:30AM"),
+        NotificationData("Hago", "INVEST", "Monday", "9:42PM"),
+        NotificationData("Aracel", "INVEST", "Friday", "1:00AM"),
+        NotificationData("Jeremmy", "INVEST", "Yesterday", "8:52PM"),
+        NotificationData("Joni", "BUY", "Today", "7:30AM"),
     )
 
-
-    Column {
-        notifications.forEach { notification ->
+    LazyColumn {
+        itemsIndexed(notifications) { index, notification ->
             NotifCard(
                 name = notification.name,
                 goal = notification.goal,
