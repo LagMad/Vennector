@@ -174,7 +174,7 @@ fun InvestDescPage() {
                                 horizontalArrangement = Arrangement.spacedBy(5.dp)
                             ) {
                                 Icon(Icons.Filled.Star, contentDescription = "Star Icon", tint = Color(0xFFFFAD33))
-                                Text(text = "4.6/5 (69)")
+                                Text(text = "4.6/5 (69)", color = Color.Black)
                             }
 
                             Text(

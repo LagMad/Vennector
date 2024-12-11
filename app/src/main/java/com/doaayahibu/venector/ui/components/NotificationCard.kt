@@ -64,18 +64,23 @@ fun NotifCard(
             ) {
                 Text(
                     text = buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
                             append("$name")
                         }
-                        append(" wants to ") // Add the regular text before the bold part
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("$goal") // Make goal bold
+                        withStyle(style = SpanStyle(color = Color.Black)) {
+                            append(" wants to ") // Add the regular text before the bold part
                         }
-                        append(" on your product!!") // Add the regular text after the bold part
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
+                            append("$goal") // Make goal bold and color it black
+                        }
+                        withStyle(style = SpanStyle(color = Color.Black)) {
+                            append(" on your product!!") // Add the regular text after the bold part
+                        }
                     }
                 )
 
-                Text(text = "What are you waiting for?")
+
+                Text(text = "What are you waiting for?", color = Color.Black)
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(text = "$day at $time", color = Color.DarkGray, fontSize = 12.sp)
                 Spacer(modifier = Modifier.height(5.dp))
