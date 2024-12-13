@@ -1,0 +1,7 @@
+<resources>
+    <style name="ShapeAppearanceOverlay.App.CurvedBottom" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+    </style>
+</resources>
