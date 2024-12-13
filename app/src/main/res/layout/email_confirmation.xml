@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/text"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:textAlignment="textEnd"
-    tools:context=".SignupActivity">
+    tools:context=".EmailConfirmationActivity">
 
+    <!-- Vector di atas -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="240dp"
@@ -19,33 +18,12 @@
         android:importantForAccessibility="no"
         android:src="@drawable/vector_1" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="160dp"
-        android:layout_height="117dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/vector_2" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="112dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/vector_3" />
-
+    <!-- Text Title -->
     <TextView
         android:id="@+id/checkemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
+        android:layout_below="@id/imageView3"
         android:layout_centerHorizontal="true"
         android:gravity="start"
         android:text="@string/email_confirmation_title"
@@ -53,6 +31,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/poppins_semibold" />
 
+    <!-- Confirmation message -->
     <TextView
         android:id="@+id/emailconfirmationmessage"
         android:layout_width="wrap_content"
@@ -60,31 +39,31 @@
         android:layout_marginHorizontal="@dimen/padding_normal"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/padding_small"
-        android:layout_below="@+id/checkemail"
+        android:layout_below="@id/checkemail"
         android:text="@string/confirmation_email_message"
         android:textSize="12sp" />
 
+    <!-- Success Image -->
     <ImageView
         android:id="@+id/successmessage"
         android:layout_width="250dp"
         android:layout_height="300dp"
-        android:layout_below="@+id/emailconfirmationmessage"
+        android:layout_below="@id/emailconfirmationmessage"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="0dp"
-        android:importantForAccessibility="no"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:onClick="onBackToLoginClicked"
         android:src="@drawable/success" />
 
     <LinearLayout
         android:id="@+id/RememberPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_verysmall"
+        android:layout_marginTop="@dimen/padding_small"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_above="@id/imageView2"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="@dimen/padding_small">
+        android:layout_below="@id/successmessage"
+        android:layout_centerHorizontal="true">
 
         <TextView
             android:id="@+id/createAccountText"
@@ -105,7 +84,8 @@
             android:textSize="12sp"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="onCreateAccountLinkClicked"
+            android:onClick="onResendEmailClicked"
             android:layout_marginStart="4dp" />
     </LinearLayout>
+
 </RelativeLayout>

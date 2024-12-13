@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import com.doaayahibu.venector.databinding.SettingProfileLayoutBinding
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 
-class SettingProfileActivity : AppCompatActivity() {
+class SettingProfileActivity(navController: NavController) : AppCompatActivity() {
 
     private lateinit var binding: SettingProfileLayoutBinding
     private lateinit var storageReference: StorageReference

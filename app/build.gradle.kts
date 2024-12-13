@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -8,11 +6,11 @@ plugins {
 
 android {
     namespace = "com.doaayahibu.venector"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.doaayahibu.venector"
-        minSdk = 35
+        minSdk = 34
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -76,6 +74,7 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.picasso)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

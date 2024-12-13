@@ -31,9 +31,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".LanguageActivity" />
-
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
+        <activity
+            android:name=".LandingActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
+        <activity
+            android:name=".EmailConfirmationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
+        <activity
+            android:name=".LanguageActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Venector"/>
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />

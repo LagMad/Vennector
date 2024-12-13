@@ -69,5 +69,5 @@ fun NavGraphBuilder.addNavigationGraph(navController: NavController) {
     composable("home") { HomeScreen(navController) }
     composable("chat") { ChatScreen(navController) }
     composable("shop") { ShopScreen(navController) }
-    composable("profile") { ProfileScreen(navController) }
+    composable("profile") { SettingProfileActivity(navController) }
 }

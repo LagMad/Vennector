@@ -9,7 +9,6 @@
     android:orientation="vertical"
     android:textAlignment="textEnd"
     tools:context=".EditProfileInformationActivity">
-
     <ImageView
         android:id="@+id/backButton"
         android:layout_width="24dp"
@@ -22,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-
     <TextView
         android:id="@+id/titleCreateAccount"
         android:layout_width="wrap_content"
@@ -36,7 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollable_section"
         android:layout_width="match_parent"
@@ -73,7 +70,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/name" />
-
                 <LinearLayout
                     android:id="@+id/fullNameInputLogLog"
                     android:layout_width="match_parent"
@@ -84,7 +80,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/fullNameTitle"
                         android:layout_width="match_parent"
@@ -110,7 +105,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/nickNameLog"
                 android:layout_width="match_parent"
@@ -127,7 +121,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/name" />
-
                 <LinearLayout
                     android:id="@+id/nickNameInputLogLog"
                     android:layout_width="match_parent"
@@ -163,7 +156,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/phoneNumberLog"
                 android:layout_width="match_parent"
@@ -180,7 +172,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/phone_number" />
-
                 <LinearLayout
                     android:id="@+id/phoneNumberLogLog"
                     android:layout_width="match_parent"
@@ -191,7 +182,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/phoneNumberTitle"
                         android:layout_width="match_parent"
@@ -217,7 +207,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/businessNameLog"
                 android:layout_width="match_parent"
@@ -234,7 +223,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/business" />
-
                 <LinearLayout
                     android:id="@+id/businessNameLogLog"
                     android:layout_width="match_parent"
@@ -245,7 +233,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/businessNameTitle"
                         android:layout_width="match_parent"
@@ -271,7 +258,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/businessTypeLog"
                 android:layout_width="match_parent"
@@ -288,7 +274,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/business" />
-
                 <LinearLayout
                     android:id="@+id/businessTypeLogLog"
                     android:layout_width="match_parent"
@@ -299,7 +284,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/businessTypeTitle"
                         android:layout_width="match_parent"
@@ -326,7 +310,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/businessNumberLog"
                 android:layout_width="match_parent"
@@ -343,7 +326,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/business_phone" />
-
                 <LinearLayout
                     android:id="@+id/businessNumberLogLog"
                     android:layout_width="match_parent"
@@ -354,7 +336,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/businessNumberTitle"
                         android:layout_width="match_parent"
@@ -381,7 +362,6 @@
                         tools:ignore="SmallSp" />
                 </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/addressLog"
                 android:layout_width="match_parent"
@@ -398,7 +378,6 @@
                     android:layout_marginEnd="@dimen/padding_verysmall"
                     android:importantForAccessibility="no"
                     android:src="@drawable/home" />
-
                 <LinearLayout
                     android:id="@+id/addressLogLog"
                     android:layout_width="match_parent"
@@ -409,7 +388,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     >
-
                     <TextView
                         android:id="@+id/addressTitle"
                         android:layout_width="match_parent"
@@ -438,9 +416,8 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
     <Button
-        android:id="@+id/signupbutton"
+        android:id="@+id/confirm_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -450,11 +427,10 @@
         android:enabled="false"
         android:fontFamily="@font/poppins_semibold"
         android:gravity="center"
-        android:text="@string/sign_up"
+        android:text="@string/confirm"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/scrollable_section"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

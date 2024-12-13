@@ -1,9 +1,9 @@
 package com.doaayahibu.venector
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -50,12 +50,12 @@ class LoginActivity : AppCompatActivity() {
 
         // Tombol Facebook
         binding.facebookButton.setOnClickListener {
-            Toast.makeText(this, "Feature not opened yet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login with facebook Feature not opened yet", Toast.LENGTH_SHORT).show()
         }
 
         // Tombol Twitter
         binding.twitterButton.setOnClickListener {
-            Toast.makeText(this, "Feature not opened yet", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login with TwitterFeature not opened yet", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -92,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun togglePasswordVisibility() {
         val editText = binding.passwordEditText
         val isPasswordVisible = editText.inputType == 129
