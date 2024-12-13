@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -88,8 +89,8 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/ic_transaction_up"
-                    android:tint="#FF0000"
-                    android:layout_marginEnd="16dp" />
+                    android:layout_marginEnd="16dp"
+                    app:tint="#FF0000" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -138,24 +139,24 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_home"
-            android:tint="#A6A6A6"
             android:layout_weight="1"
-            android:contentDescription="Home" />
+            android:contentDescription="Home"
+            app:tint="#A6A6A6" />
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_transaction"
-            android:tint="#4CAF50"
             android:layout_weight="1"
-            android:contentDescription="Transaction" />
+            android:contentDescription="Transaction"
+            app:tint="#4CAF50" />
 
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_profile"
-            android:tint="#A6A6A6"
             android:layout_weight="1"
-            android:contentDescription="Profile" />
+            android:contentDescription="Profile"
+            app:tint="#A6A6A6" />
     </LinearLayout>
 </LinearLayout>

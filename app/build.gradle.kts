@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
     implementation(libs.android.gif.drawable.v1223)
+    implementation(libs.material)
+
 
     implementation(libs.ui)
     implementation(libs.androidx.core.ktx)

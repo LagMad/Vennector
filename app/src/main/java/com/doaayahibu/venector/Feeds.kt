@@ -73,9 +73,6 @@ fun FeedsPage() {
                         .padding(horizontal = 8.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-//                    item {
-//                        TitleButtons()
-//                    }
                     item {
                         Posts()
                     }
@@ -127,7 +124,6 @@ fun MediumTopAppBarFeeds(context: Context) {
             )
         )
 
-        // Second Row: Title Buttons
         TitleButtons()
     }
 }
@@ -170,7 +166,7 @@ fun TitleButtons() {
 
 @Composable
 fun Posts() {
-    // List of image URLs to be displayed
+
     val imageUrls = listOf(
         "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdBWB76EZKUgHdARYa-XNyIzoiJiUiyKiFrg&s",
@@ -181,7 +177,7 @@ fun Posts() {
         name = "Jeremmy",
         time = 2,
         description = "Wow kucingnya lucu sekaliii ingin saya cokot.",
-        imageUrls = imageUrls,  // Pass the list of images
+        imageUrls = imageUrls,
         views = 150,
         likes = 25,
         comments = 10
@@ -191,131 +187,12 @@ fun Posts() {
         name = "Hizkia",
         time = 5,
         description = "Meow meow meeooooowww meow meow purrr meow.",
-        imageUrls = imageUrls,  // Pass the list of images
+        imageUrls = imageUrls,
         views = 11240,
         likes = 1245,
         comments = 241
     )
 }
-
-//@Composable
-//fun PostCard(
-//    name: String,
-//    time: Int,
-//    description: String,
-//    imageUrls: List<String>,
-//    views: Int,
-//    likes: Int,
-//    comments: Int
-//) {
-//    val context = LocalContext.current
-//    var isFavorited by remember { mutableStateOf(false) }
-//
-//    Card(
-//        modifier = Modifier
-//            .padding(8.dp)
-//            .fillMaxWidth(),
-//        elevation = CardDefaults.cardElevation(
-//            defaultElevation = 10.dp
-//        ),
-//        colors = CardDefaults.elevatedCardColors(
-//            containerColor = Color(0xFFD6E5EE)
-//        )
-//    ) {
-//        Column(
-//            modifier = Modifier
-//                .padding(16.dp)
-//                .fillMaxWidth(),
-//        ) {
-//            Row {
-//                IconButton(onClick = { val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com/hizkiajeremmy"))
-//                    context.startActivity(intent) }) {
-//                    Icon(
-//                        painter = painterResource(id = R.drawable.profile),
-//                        contentDescription = "Profile",
-//                        tint = Color.Black
-//                    )
-//                }
-//
-//                Column {
-//                    Text(text = name, fontWeight = FontWeight.Bold, fontSize = 20.sp, color = Color.Black)
-//
-//                    Text(text = "$time jam yang lalu", fontWeight = FontWeight.Thin, color = Color.Black)
-//                }
-//            }
-//
-//            Text(text = description, color = Color.Black)
-//
-//            LazyRow(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(vertical = 8.dp),
-//                horizontalArrangement = Arrangement.spacedBy(8.dp)
-//            ) {
-//                itemsIndexed(imageUrls) { index, imageUrl ->
-//                    AsyncImage(
-//                        model = ImageRequest.Builder(context)
-//                            .data(imageUrl)
-//                            .placeholder(R.drawable.profile)
-////                            .error(R.drawable.error) // Error placeholder
-//                            .scale(Scale.FILL)
-//                            .build(),
-//                        contentDescription = null,
-//                        modifier = Modifier
-//                            .height(250.dp)
-//                            .clip(RoundedCornerShape(16.dp))
-//                        ,
-//                        contentScale = ContentScale.Crop
-//                    )
-//                }
-//            }
-//
-//
-//
-//            Row {
-//                Row(
-//                    horizontalArrangement = Arrangement.SpaceBetween,
-//                    verticalAlignment = Alignment.CenterVertically
-//                ) {
-//                    IconButton(onClick = { showToast(context, "Message Icon clicked") }) {
-//                        Icon(Icons.Filled.RemoveRedEye, contentDescription = "Action Icon", tint = Color.Black)
-//                    }
-//
-//                    Text(text = "$views", color = Color.Black )
-//                }
-//
-//                Row(
-//                    horizontalArrangement = Arrangement.SpaceBetween,
-//                    verticalAlignment = Alignment.CenterVertically
-//                ) {
-//                    IconButton(onClick = {
-//                        showToast(context, "Love Icon clicked")
-//                        isFavorited = !isFavorited
-//                    }) {
-//                        Icon(
-//                            imageVector = if (isFavorited) Icons.Outlined.Favorite else Icons.Outlined.FavoriteBorder,
-//                            contentDescription = "Action Icon",
-//                            tint = if (isFavorited) Color.Red else Color.Black
-//                        )
-//                    }
-//
-//                    Text(text = "$likes", color = Color.Black )
-//                }
-//
-//                Row(
-//                    horizontalArrangement = Arrangement.SpaceBetween,
-//                    verticalAlignment = Alignment.CenterVertically
-//                ) {
-//                    IconButton(onClick = { showToast(context, "Message Icon clicked") }) {
-//                        Icon(Icons.AutoMirrored.Filled.Comment, contentDescription = "Action Icon", tint = Color.Black)
-//                    }
-//
-//                    Text(text = "$comments", color = Color.Black )
-//                }
-//            }
-//        }
-//    }
-//}
 
 @Preview(showBackground = true)
 @Composable
