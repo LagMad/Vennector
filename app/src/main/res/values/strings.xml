@@ -6,4 +6,6 @@
     <string name="title_activity_nav_top_bar">NavTopBar</string>
     <string name="title_activity_messages">Messages</string>
     <string name="title_activity_investor_description">InvestorDescription</string>
+    <string name="title_activity_edit_post_screen">EditPostScreen</string>
+    <string name="title_activity_notification_detail_page">NotificationDetailPage</string>
 </resources>

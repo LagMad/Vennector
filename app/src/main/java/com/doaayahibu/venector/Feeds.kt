@@ -11,16 +11,21 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Message
 import androidx.compose.material.icons.filled.AddCircleOutline
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -29,6 +34,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,6 +48,13 @@ import androidx.compose.ui.unit.sp
 import com.doaayahibu.venector.ui.components.PostCard
 import com.doaayahibu.venector.ui.components.TabButton
 import com.doaayahibu.venector.ui.theme.VenectorTheme
+import com.google.firebase.database.FirebaseDatabase
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import kotlinx.coroutines.delay
 
 class Feeds : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,27 +71,20 @@ class Feeds : ComponentActivity() {
 @Composable
 fun FeedsPage() {
     val context = LocalContext.current
+    var searchQuery by remember { mutableStateOf("") }
 
     Scaffold(
-        topBar = { MediumTopAppBarFeeds(context = context ) },
+        topBar = { MediumTopAppBarFeeds(context) },
         bottomBar = { BottomNavigationBar(context) },
         content = { paddingValues ->
-            Box(
+            Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.White)
                     .padding(paddingValues)
             ) {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    item {
-                        Posts()
-                    }
-                }
+                Title()
+                Posts()
             }
         }
     )
@@ -86,9 +94,14 @@ fun FeedsPage() {
 @Composable
 fun MediumTopAppBarFeeds(context: Context) {
     Column {
-        // First Row: Navigation Icon, Actions, and Empty Title
         TopAppBar(
-            title = {},
+            title = {
+                Text(
+                text = "Feeds",
+                fontSize = 36.sp,
+                fontWeight = FontWeight.Black,
+                color = Color.Black
+            )},
             navigationIcon = {
                 IconButton(onClick = {
                     showToast(context, "Navigation Icon clicked")
@@ -123,75 +136,138 @@ fun MediumTopAppBarFeeds(context: Context) {
                 navigationIconContentColor = Color.Black
             )
         )
-
-        TitleButtons()
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TitleButtons() {
+fun Title() {
     val context = LocalContext.current
 
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 12.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = "Feeds",
-            fontSize = 36.sp,
-            fontWeight = FontWeight.Black,
-            color = Color.Black
-        )
-
-        Row(
-            modifier = Modifier
-                .width(200.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TabButton(
-                label = "Recent",
-                modifier = Modifier.weight(1f)
-            )
-            TabButton(
-                label = "Popular",
-                modifier = Modifier.weight(1f)
-            )
-        }
-    }
 }
 
+data class Post(
+    val postId: String = "", // Add postId
+    val title: String = "Unknown",
+    val description: String = "No description available",
+    val images: List<String> = emptyList(),
+    val time: Long = 0,
+    val views: Long = 0,
+    val likes: Long = 0,
+    val comments: Long = 0,
+    val isLikedDb: Boolean = false
+)
+
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Posts() {
+    val context = LocalContext.current
+    var searchQuery by remember { mutableStateOf("") }
+    val postsList = remember { mutableStateOf<List<Post>>(emptyList()) }
+    val filteredPosts = remember { mutableStateOf<List<Post>>(emptyList()) }
 
-    val imageUrls = listOf(
-        "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=1200&ar=2:1&fit=crop",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdBWB76EZKUgHdARYa-XNyIzoiJiUiyKiFrg&s",
-        "https://uploads.dailydot.com/2024/07/side-eye-cat.jpg?q=65&auto=format&w=1600&ar=2:1&fit=crop"
-    )
+    // Function to fetch posts (you can put this in your ViewModel if using one)
+    fun fetchPosts() {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("posts").get()
+            .addOnSuccessListener { dataSnapshot ->
+                val fetchedPosts = dataSnapshot.children.mapNotNull { snapshot ->
+                    val post = snapshot.getValue(Post::class.java)
+                    post?.copy(postId = snapshot.key ?: "") // Add postId from Firebase snapshot key
+                }
+                postsList.value = fetchedPosts
+                // Set filtered posts initially to all posts
+                filteredPosts.value = fetchedPosts
+            }
+            .addOnFailureListener { error ->
+                showToast(context, "Failed to fetch posts: ${error.message}")
+            }
+    }
 
-    PostCard(
-        name = "Jeremmy",
-        time = 2,
-        description = "Wow kucingnya lucu sekaliii ingin saya cokot.",
-        imageUrls = imageUrls,
-        views = 150,
-        likes = 25,
-        comments = 10
-    )
+    LaunchedEffect(Unit) {
+        fetchPosts() // Fetch posts when the composable is first loaded
+    }
 
-    PostCard(
-        name = "Hizkia",
-        time = 5,
-        description = "Meow meow meeooooowww meow meow purrr meow.",
-        imageUrls = imageUrls,
-        views = 11240,
-        likes = 1245,
-        comments = 241
-    )
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .padding(16.dp)) {
+
+        // Search Bar
+        TextField(
+            value = searchQuery,
+            onValueChange = { searchQuery = it },
+            label = { Text("Search") },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            leadingIcon = {
+                Icon(Icons.Default.Search, contentDescription = "Search Icon", tint = Color.Black)
+            },
+            colors = TextFieldDefaults.textFieldColors(
+                containerColor = Color.White,
+                focusedIndicatorColor = Color(0xFF5B99C2),
+                unfocusedIndicatorColor = Color.Gray,
+                unfocusedLabelColor = Color.Gray,
+                focusedLabelColor = Color.Gray,
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black
+            )
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Submit Search Button
+        Button(
+            onClick = {
+                // Perform the search and filter the posts based on the search query
+                filteredPosts.value = postsList.value.filter {
+                    it.title.contains(searchQuery, ignoreCase = true) ||
+                            it.description.contains(searchQuery, ignoreCase = true)
+                }
+                if (filteredPosts.value.isEmpty()) {
+                    showToast(context, "No posts found for: $searchQuery")
+                } else {
+                    showToast(context, "Found ${filteredPosts.value.size} post(s) for: $searchQuery")
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF5B99C2))
+        ) {
+            Text("Search", color = Color.White)
+        }
+    }
+
+    if (filteredPosts.value.isEmpty()) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
+        }
+    } else {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(filteredPosts.value) { post ->
+                PostCard(
+                    name = post.title,
+                    time = post.time,
+                    description = post.description,
+                    imageUrls = post.images,
+                    views = post.views,
+                    likes = post.likes,
+                    comments = post.comments,
+                    postId = post.postId,
+                    isLikedDb = post.isLikedDb
+                )
+            }
+        }
+    }
 }
 
 @Preview(showBackground = true)
