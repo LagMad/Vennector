@@ -23,13 +23,9 @@
         android:theme="@style/Theme.Venector">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".HomePageActivity"
             android:exported="true"
             android:theme="@style/Theme.Venector">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -46,7 +42,12 @@
         <activity
             android:name=".LandingActivity"
             android:exported="true"
-            android:theme="@style/Theme.Venector"/>
+            android:theme="@style/Theme.Venector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".EmailConfirmationActivity"
             android:exported="true"
@@ -57,6 +58,8 @@
             android:theme="@style/Theme.Venector"/>
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            tools:replace="android:theme" />
+
     </application>
 </manifest>

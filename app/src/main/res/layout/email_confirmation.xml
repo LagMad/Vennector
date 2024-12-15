@@ -52,7 +52,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:onClick="onBackToLoginClicked"
         android:src="@drawable/success" />
 
     <LinearLayout

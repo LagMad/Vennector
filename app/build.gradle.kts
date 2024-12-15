@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.doaayahibu.venector"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.doaayahibu.venector"

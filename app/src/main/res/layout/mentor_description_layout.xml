@@ -79,7 +79,6 @@
                     android:src="@drawable/favorite_before_click"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:bringToFront="true"
                     android:elevation="15dp"  />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

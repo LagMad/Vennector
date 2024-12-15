@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Masuk ke aplikasi setelah berhasil login
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, HomePageActivity::class.java))
                     finish()
                 } else {
                     // Tampilkan pesan error
