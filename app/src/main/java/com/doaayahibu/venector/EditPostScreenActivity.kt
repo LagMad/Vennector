@@ -44,23 +44,21 @@ class EditPostScreenActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val postId = intent.getStringExtra("POST_ID") ?: return // Ensure `POST_ID` is passed
+        val postId = intent.getStringExtra("POST_ID") ?: return
         setContent {
             VenectorTheme {
-                EditPostScreen(postId = postId) // Pass the postId here
+                EditPostScreen(postId = postId)
             }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditPostScreen(postId: String) {
     val context = LocalContext.current
     val database = FirebaseDatabase.getInstance().reference
     val post = remember { mutableStateOf<Post?>(null) }
 
-    // Fetch the post data from Firebase
     LaunchedEffect(postId) {
         database.child("posts").child(postId).get().addOnSuccessListener { snapshot ->
             post.value = snapshot.getValue(Post::class.java)
@@ -139,12 +137,8 @@ fun EditPostScreen(postId: String) {
                             )
                         )
 
-                        // Display and edit images (optional)
-                        // Implement image URL editing logic here if needed
-
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        // Save Changes Button
                         Button(
                             onClick = {
                                 val updatedPost = Post(
@@ -159,7 +153,6 @@ fun EditPostScreen(postId: String) {
                                     isLikedDb = it.isLikedDb
                                 )
 
-                                // Update post in Firebase
                                 database.child("posts").child(postId).setValue(updatedPost)
                                     .addOnSuccessListener {
                                         showToast(context, "Post updated successfully")
@@ -188,15 +181,6 @@ fun EditPostScreen(postId: String) {
             }
         )
     } ?: run {
-        // Show loading or error message if post data is not loaded
         CircularProgressIndicator()
     }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview4() {
-//    VenectorTheme {
-//        EditPostScreen(postId = "sample_post_id") // Use a sample postId here for preview
-//    }
-//}

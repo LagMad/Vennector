@@ -8,6 +8,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.platform.LocalContext
+import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -32,6 +36,12 @@ class RegisterActivity : AppCompatActivity() {
         // Initialize Firebase Authentication and Firestore
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
+
+        FirebaseApp.initializeApp(this)
+        FirebaseAppCheck.getInstance().installAppCheckProviderFactory(
+            PlayIntegrityAppCheckProviderFactory.getInstance()
+        )
+
 
         // Initialize UI components
         fullNameInput = findViewById(R.id.fullNameInput)
@@ -113,16 +123,15 @@ class RegisterActivity : AppCompatActivity() {
                         db.collection("users").document(user.uid).set(userData)
                             .addOnSuccessListener {
                                 Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
-                                // Navigate to HomePageActivity
-                                startActivity(Intent(this, HomePageActivity::class.java))
-                                finish()  // Close RegisterActivity
+                                startActivity(Intent(this, Home::class.java))
+                                finish()
                             }
                             .addOnFailureListener { e ->
-                                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                             }
                     }
                 } else {
-                    Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_LONG).show()
                 }
             }
     }

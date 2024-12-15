@@ -58,7 +58,6 @@ class AddPost : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddPostPage() {
     val context = LocalContext.current
@@ -66,13 +65,12 @@ fun AddPostPage() {
     val inputTitle = remember { mutableStateOf("") }
     val inputDescription = remember { mutableStateOf("") }
 
-    // ActivityResultLauncher to pick multiple images
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetMultipleContents()
     ) { uris: List<Uri> ->
         if (uris.isNotEmpty()) {
-            imageUris.clear() // Clear the list to avoid duplicates
-            imageUris.addAll(uris) // Add the newly selected URIs
+            imageUris.clear()
+            imageUris.addAll(uris)
         }
     }
 
@@ -185,22 +183,20 @@ fun AddPostPage() {
                 Button(
                     onClick = {
                         val database = FirebaseDatabase.getInstance().reference
-                        val postId = UUID.randomUUID().toString() // Unique ID for the post
+                        val postId = UUID.randomUUID().toString()
                         val post = mapOf(
                             "title" to inputTitle.value,
                             "description" to inputDescription.value,
                             "images" to imageUris.map { it.toString() },
-                            "time" to ServerValue.TIMESTAMP, // Firebase server timestamp
-                            "views" to 0, // Default views
-                            "likes" to 0, // Default likes
-                            "comments" to 0, // Default comments
+                            "time" to ServerValue.TIMESTAMP,
+                            "views" to 0,
+                            "likes" to 0,
+                            "comments" to 0,
                             "isLikedDb" to false
                         )
 
-                        // Save post to Firebase
                         database.child("posts").child(postId).setValue(post)
                             .addOnSuccessListener {
-                                // Reset the input fields and image selection after success
                                 inputTitle.value = ""
                                 inputDescription.value = ""
                                 imageUris.clear()

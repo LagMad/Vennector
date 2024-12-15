@@ -139,7 +139,6 @@ fun MediumTopAppBarFeeds(context: Context) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Title() {
     val context = LocalContext.current
@@ -147,7 +146,7 @@ fun Title() {
 }
 
 data class Post(
-    val postId: String = "", // Add postId
+    val postId: String = "",
     val title: String = "Unknown",
     val description: String = "No description available",
     val images: List<String> = emptyList(),
@@ -158,8 +157,6 @@ data class Post(
     val isLikedDb: Boolean = false
 )
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Posts() {
     val context = LocalContext.current
@@ -167,17 +164,15 @@ fun Posts() {
     val postsList = remember { mutableStateOf<List<Post>>(emptyList()) }
     val filteredPosts = remember { mutableStateOf<List<Post>>(emptyList()) }
 
-    // Function to fetch posts (you can put this in your ViewModel if using one)
     fun fetchPosts() {
         val database = FirebaseDatabase.getInstance().reference
         database.child("posts").get()
             .addOnSuccessListener { dataSnapshot ->
                 val fetchedPosts = dataSnapshot.children.mapNotNull { snapshot ->
                     val post = snapshot.getValue(Post::class.java)
-                    post?.copy(postId = snapshot.key ?: "") // Add postId from Firebase snapshot key
+                    post?.copy(postId = snapshot.key ?: "")
                 }
                 postsList.value = fetchedPosts
-                // Set filtered posts initially to all posts
                 filteredPosts.value = fetchedPosts
             }
             .addOnFailureListener { error ->
@@ -186,14 +181,13 @@ fun Posts() {
     }
 
     LaunchedEffect(Unit) {
-        fetchPosts() // Fetch posts when the composable is first loaded
+        fetchPosts()
     }
 
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(16.dp)) {
 
-        // Search Bar
         TextField(
             value = searchQuery,
             onValueChange = { searchQuery = it },
@@ -217,10 +211,8 @@ fun Posts() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Submit Search Button
         Button(
             onClick = {
-                // Perform the search and filter the posts based on the search query
                 filteredPosts.value = postsList.value.filter {
                     it.title.contains(searchQuery, ignoreCase = true) ||
                             it.description.contains(searchQuery, ignoreCase = true)

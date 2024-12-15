@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Masuk ke aplikasi setelah berhasil login
-                    startActivity(Intent(this, HomePageActivity::class.java))
+                    startActivity(Intent(this, Home::class.java))
                     finish()
                 } else {
                     // Tampilkan pesan error
@@ -103,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
             binding.passwordLayout.endIconDrawable = getDrawable(R.drawable.eyes_close)
             editText.inputType = 129 // Sembunyikan password
         }
-        editText.setSelection(editText.text?.length ?: 0) // Pindahkan kursor ke akhir teks
+        editText.setSelection(editText.text?.length ?: 0)
     }
 
     fun onForgotPasswordClicked() {
