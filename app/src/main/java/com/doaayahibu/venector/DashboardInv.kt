@@ -78,22 +78,22 @@ fun DashboardInv() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar() {
-    SmallTopAppBar(
-        title = {
-            Text(
-                "Selamat datang, Investor",
-                style = MaterialTheme.typography.titleMedium
-            )
-        },
-        actions = {
-            IconButton(onClick = { /* Handle Profile */ }) {
-                Icon(Icons.Filled.Person, contentDescription = "Profile")
-            }
-        },
-        colors = TopAppBarDefaults.smallTopAppBarColors(
-            containerColor = customGreen // Custom color
-        )
-    )
+//    SmallTopAppBar(
+//        title = {
+//            Text(
+//                "Selamat datang, Investor",
+//                style = MaterialTheme.typography.titleMedium
+//            )
+//        },
+//        actions = {
+//            IconButton(onClick = { /* Handle Profile */ }) {
+//                Icon(Icons.Filled.Person, contentDescription = "Profile")
+//            }
+//        },
+//        colors = TopAppBarDefaults.smallTopAppBarColors(
+//            containerColor = customGreen // Custom color
+//        )
+//    )
 }
 
 @Composable

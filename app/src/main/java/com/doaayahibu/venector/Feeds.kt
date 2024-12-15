@@ -203,8 +203,9 @@ fun Posts() {
             leadingIcon = {
                 Icon(Icons.Default.Search, contentDescription = "Search Icon", tint = Color.Black)
             },
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Color.White,
+            colors = TextFieldDefaults.colors(
+                unfocusedContainerColor = Color.White,
+                focusedContainerColor = Color.White,
                 focusedIndicatorColor = Color(0xFF5B99C2),
                 unfocusedIndicatorColor = Color.Gray,
                 unfocusedLabelColor = Color.Gray,

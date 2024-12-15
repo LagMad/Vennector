@@ -41,13 +41,12 @@
             android:theme="@style/Theme.Venector"/>
         <activity
             android:name=".LandingActivity"
-            android:name=".NotificationDetailPage"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_notification_detail_page"
             android:theme="@style/Theme.Venector" />
         <activity
             android:name=".EditPostScreenActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_edit_post_screen"
             android:theme="@style/Theme.Venector" />
         <activity
@@ -92,10 +91,10 @@
             android:name=".LanguageActivity"
             android:exported="true"
             android:theme="@style/Theme.Venector"/>
-        <activity
-            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
-            tools:replace="android:theme" />
+<!--        <activity-->
+<!--            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"-->
+<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"-->
+<!--            tools:replace="android:theme" />-->
 
     </application>
 </manifest>

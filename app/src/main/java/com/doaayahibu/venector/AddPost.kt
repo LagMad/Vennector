@@ -141,10 +141,11 @@ fun AddPostPage() {
                             .padding(top = 8.dp)
                             .border(1.dp, Color.Gray, RoundedCornerShape(8.dp)),
                         singleLine = true,
-                        colors = TextFieldDefaults.textFieldColors(
+                        colors = TextFieldDefaults.colors(
                             focusedTextColor = Color.Black,
                             unfocusedTextColor = Color.Black,
-                            containerColor = Color.Transparent,
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
                             unfocusedLabelColor = Color.DarkGray,
                             focusedLabelColor = Color.DarkGray,
                             focusedIndicatorColor = Color.Black,
@@ -168,10 +169,11 @@ fun AddPostPage() {
                             .padding(top = 8.dp)
                             .border(1.dp, Color.Gray, RoundedCornerShape(8.dp)),
                         singleLine = true,
-                        colors = TextFieldDefaults.textFieldColors(
+                        colors = TextFieldDefaults.colors(
                             focusedTextColor = Color.Black,
                             unfocusedTextColor = Color.Black,
-                            containerColor = Color.Transparent,
+                            focusedContainerColor = Color.Transparent,
+                            unfocusedContainerColor = Color.Transparent,
                             unfocusedLabelColor = Color.DarkGray,
                             focusedLabelColor = Color.DarkGray,
                             focusedIndicatorColor = Color.Black,
