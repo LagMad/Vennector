@@ -53,6 +53,20 @@ android {
 
 dependencies {
 
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.coil.compose)
+    implementation(libs.gif.android.gif.drawable)
+    implementation(libs.glide)
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    annotationProcessor(libs.glide.compiler)
+    implementation(libs.android.gif.drawable.v1223)
+    implementation(libs.material)
+
+
     implementation(libs.ui)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,6 +76,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
     implementation(libs.material)
     implementation(platform(libs.firebase.bom))
     implementation(libs.material.v190)
@@ -75,6 +90,7 @@ dependencies {
     implementation(libs.picasso)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.firestore.ktx)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

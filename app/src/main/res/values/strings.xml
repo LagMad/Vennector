@@ -116,4 +116,14 @@
     <string name="legal_amp_compliance"><![CDATA[Legal & Compliance]]></string>
     <string name="top_mentor">Top Mentor</string>
     <string name="favorite_mentor">Favorite mentor</string>
+
+    <string name="title_activity_feeds">Feeds</string>
+    <string name="title_activity_add_post">AddPost</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_nav_top_bar">NavTopBar</string>
+    <string name="title_activity_messages">Messages</string>
+    <string name="title_activity_investor_description">InvestorDescription</string>
+    <string name="title_activity_edit_post_screen">EditPostScreen</string>
+    <string name="title_activity_notification_detail_page">NotificationDetailPage</string>
+
 </resources>
