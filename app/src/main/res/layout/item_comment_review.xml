@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/card_background"
+    android:layout_marginEnd="@dimen/padding_small">
+    <!-- Comment Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:id="@+id/imgCommentUser"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/comment_1"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true"
+            android:background="@drawable/circle_background"
+            android:layout_marginEnd="10dp" />
+        <TextView
+            android:id="@+id/tvCommentUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Budi"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="@dimen/padding_verysmall"
+            android:src="@drawable/star_full"/>
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="@dimen/padding_verysmall"
+            android:src="@drawable/star_full"/>
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="@dimen/padding_verysmall"
+            android:src="@drawable/star_full"/>
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="@dimen/padding_verysmall"
+            android:src="@drawable/star_full"/>
+        <ImageView
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginEnd="@dimen/padding_verysmall"
+            android:src="@drawable/star_full"/>
+    </LinearLayout>
+
+    <!-- Comment Content -->
+    <TextView
+        android:id="@+id/tvCommentContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:text="Awww, kakaknya ganteng banget jadi pengen."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:layout_marginTop="@dimen/padding_verysmall" />
+
+    <!-- Comment Images -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/comment_1"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/comment_2"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="8dp" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/comment_3"
+            android:scaleType="centerCrop" />
+    </LinearLayout>
+
+    <!-- Comment Metadata -->
+    <TextView
+        android:id="@+id/tvCommentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_light"
+        android:text="Dikirim pada 14 Mar 2024"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp" />
+</LinearLayout>

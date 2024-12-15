@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:textAlignment="textEnd"
+    tools:context=".EmailConfirmationActivity">
+
+    <!-- Vector di atas -->
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/vector_1" />
+
+    <!-- Text Title -->
+    <TextView
+        android:id="@+id/checkemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:gravity="start"
+        android:text="@string/email_confirmation_title"
+        android:textColor="@color/dark_blue"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold" />
+
+    <!-- Confirmation message -->
+    <TextView
+        android:id="@+id/emailconfirmationmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_small"
+        android:layout_below="@id/checkemail"
+        android:text="@string/confirmation_email_message"
+        android:textSize="12sp" />
+
+    <!-- Success Image -->
+    <ImageView
+        android:id="@+id/successmessage"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/emailconfirmationmessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/success" />
+
+    <LinearLayout
+        android:id="@+id/RememberPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_small"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/successmessage"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/createAccountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_email_message"
+            android:textColor="@color/dark_blue"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/CreateAccountLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resend_email_button"
+            android:textColor="@color/light_blue"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onResendEmailClicked"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+</RelativeLayout>

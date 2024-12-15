@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Header Background -->
+    <ImageView
+        android:id="@+id/header_background"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/rectangle_870"
+        android:src="@drawable/background_star"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/padding_small"
+        android:layout_marginTop="@dimen/padding_small"
+        android:layout_alignParentStart="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/profile_photo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="60dp"
+        android:importantForAccessibility="no"
+        android:src="@mipmap/ic_launcher_round"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageButton
+        android:id="@+id/edit_photo"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/circle_background_2"
+        android:importantForAccessibility="no"
+        android:padding="7dp"
+        android:src="@drawable/edit_photo"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="113dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@{user.nick_name}"
+        android:textSize="20sp"
+        android:textColor="@color/dark_blue"
+        android:layout_marginTop="@dimen/padding_small"
+        app:layout_constraintTop_toBottomOf="@id/profile_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/menu_section_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@id/profile_name">
+
+        <LinearLayout
+            android:id="@+id/edit_profile_information"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onEditProfileInformationClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/edit_profile" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/edit_profile_information"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notification"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onNotificationClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/notification" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/notification"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:id="@+id/notification_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="@string/on"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/language"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onLanguageClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/language" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/language"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="@string/english"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_section_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_1">
+
+        <LinearLayout
+            android:id="@+id/security"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onSecurityClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/security" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/security"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/theme"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onThemeClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/theme" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/theme"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+
+            <TextView
+                android:id="@+id/theme_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_light"
+                android:gravity="center_vertical|clip_horizontal"
+                android:text="@string/light_mode"
+                android:textSize="12sp"
+                android:textColor="@color/light_blue" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/menu_section_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingVertical="@dimen/padding_small"
+        android:background="@drawable/card_background"
+        android:elevation="@dimen/padding_normal"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_2">
+
+        <LinearLayout
+            android:id="@+id/about_us"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onAboutUstClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/help_support" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/about_us"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/privacy_policy"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onPrivacyPolicyClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/contact_us" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/terms_and_conditions"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="onTermsAndConditionClicked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_verysmall"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/padding_verysmall"
+                android:importantForAccessibility="no"
+                android:src="@drawable/privacy_policy" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/terms_amp_cndition"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:gravity="center_vertical|clip_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/log_out_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_big"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:background="@drawable/button_background"
+        android:enabled="false"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="@string/log_out"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/menu_section_3"
+        android:layout_centerHorizontal="true"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

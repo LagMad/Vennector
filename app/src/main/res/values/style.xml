@@ -1,4 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.Venector" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
     <style name="ShapeAppearanceOverlay.App.CurvedBottom" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSizeBottomLeft">16dp</item>

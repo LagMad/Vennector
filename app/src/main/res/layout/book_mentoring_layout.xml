@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Session Count Title -->
+    <TextView
+        android:id="@+id/session_count_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Session Count"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <!-- Session Count Control -->
+    <LinearLayout
+        android:id="@+id/session_count_control"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/session_count_title"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Minus Button -->
+        <Button
+            android:id="@+id/minus_session_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_background"
+            android:text="-"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold" />
+
+        <!-- Session Count Display -->
+        <TextView
+            android:id="@+id/session_count_display"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="8dp"
+            android:gravity="center"
+            android:fontFamily="@font/poppins_medium"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/button_background" />
+
+        <!-- Plus Button -->
+        <Button
+            android:id="@+id/plus_session_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_background"
+            android:text="+"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_bold" />
+    </LinearLayout>
+
+    <!-- Date & Time Title -->
+    <TextView
+        android:id="@+id/date_time_title_mentoring"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Date &amp; Time"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/session_count_control"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Weekdays Selection -->
+    <LinearLayout
+        android:id="@+id/weekdays_container_mentoring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/date_time_title_mentoring"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Placeholder for dynamically added weekday buttons -->
+    </LinearLayout>
+
+    <!-- Selected Day Title -->
+    <TextView
+        android:id="@+id/select_day_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Selected Day"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/weekdays_container_mentoring"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Time Slots Container -->
+    <GridLayout
+        android:id="@+id/time_slot_container_mentoring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:columnCount="2"
+        android:rowCount="4"
+        app:layout_constraintTop_toBottomOf="@id/select_day_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Placeholder for dynamically added time slot buttons -->
+    </GridLayout>
+
+    <!-- Find New Mentor Button -->
+    <Button
+        android:id="@+id/find_new_mentor_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_background"
+        android:text="Find New Mentor"
+        android:fontFamily="@font/poppins_semibold"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/time_slot_container_mentoring"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

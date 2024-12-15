@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.doaayahibu.venector.feature.home.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.doaayahibu.venector.feature.chat.ChatFragment"
+        android:label="Chat" />
+
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.doaayahibu.venector.feature.shop.ShopFragment"
+        android:label="Shop" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.doaayahibu.venector.feature.profile.ProfileFragment"
+        android:label="Profile" />
+</navigation>
