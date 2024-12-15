@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "83896605782",
+    "firebase_url": "https://venector-aca37-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "venector-aca37",
+    "storage_bucket": "venector-aca37.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:83896605782:android:e2dadf89851480f0f7eff7",
+        "android_client_info": {
+          "package_name": "com.doaayahibu.venector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq_GRSvdcpkdhSdPVuMW_1L0kGjj-r_VU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

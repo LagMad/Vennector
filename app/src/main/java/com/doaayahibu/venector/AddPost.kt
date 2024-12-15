@@ -12,29 +12,20 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -49,9 +40,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import com.doaayahibu.venector.ui.components.NavArrowBackTitle
 import com.doaayahibu.venector.ui.theme.VenectorTheme
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ServerValue
+import java.util.UUID
 
 class AddPost : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,8 +87,8 @@ fun AddPostPage() {
             ) {
                 NavArrowBackTitle(
                     onClick = {
-                    showToast(context, "Navigation Icon clicked")
-                    context.startActivity(Intent(context, Feeds::class.java))
+                        showToast(context, "Navigation Icon clicked")
+                        context.startActivity(Intent(context, Feeds::class.java))
                     },
                     title = "Add Post"
                 )
@@ -186,9 +179,35 @@ fun AddPostPage() {
                         )
                     )
                 }
-                
+
                 Button(
-                    onClick = { showToast(context, "Upload clicked") },
+                    onClick = {
+                        val database = FirebaseDatabase.getInstance().reference
+                        val postId = UUID.randomUUID().toString() // Unique ID for the post
+                        val post = mapOf(
+                            "title" to inputTitle.value,
+                            "description" to inputDescription.value,
+                            "images" to imageUris.map { it.toString() },
+                            "time" to ServerValue.TIMESTAMP, // Firebase server timestamp
+                            "views" to 0, // Default views
+                            "likes" to 0, // Default likes
+                            "comments" to 0, // Default comments
+                            "isLikedDb" to false
+                        )
+
+                        // Save post to Firebase
+                        database.child("posts").child(postId).setValue(post)
+                            .addOnSuccessListener {
+                                // Reset the input fields and image selection after success
+                                inputTitle.value = ""
+                                inputDescription.value = ""
+                                imageUris.clear()
+                                showToast(context, "Post uploaded successfully!")
+                            }
+                            .addOnFailureListener { error ->
+                                showToast(context, "Failed to upload post: ${error.message}")
+                            }
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
@@ -196,7 +215,12 @@ fun AddPostPage() {
                         containerColor = Color(0xFF1A4870)
                     )
                 ) {
-                    Text(text = "Upload Now", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+                    Text(
+                        text = "Upload Now",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
                 }
             }
         }
