@@ -41,6 +41,42 @@
             android:theme="@style/Theme.Venector"/>
         <activity
             android:name=".LandingActivity"
+            android:name=".NotificationDetailPage"
+            android:exported="false"
+            android:label="@string/title_activity_notification_detail_page"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".EditPostScreenActivity"
+            android:exported="false"
+            android:label="@string/title_activity_edit_post_screen"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".InvestorDescription"
+            android:exported="true"
+            android:label="@string/title_activity_investor_description"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".Messages"
+            android:exported="true"
+            android:label="@string/title_activity_messages"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".Profile"
+            android:exported="true"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".AddPost"
+            android:exported="true"
+            android:label="@string/title_activity_add_post"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".Feeds"
+            android:exported="true"
+            android:label="@string/title_activity_feeds"
+            android:theme="@style/Theme.Venector" />
+        <activity
+            android:name=".Home"
             android:exported="true"
             android:theme="@style/Theme.Venector">
             <intent-filter>
